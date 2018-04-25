@@ -3,10 +3,6 @@
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
         google()
     }
     dependencies {
@@ -20,14 +16,11 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        google()
     }
 
     ext {
-        androidSupportVersion = "25.3.0"
+        androidSupportVersion = "26.1.0"
 
     }
 }

@@ -45,7 +45,6 @@ public class ArticleListActivity extends AppCompatActivity implements
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
-
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
@@ -58,9 +57,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_article_list);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
-
-        final View toolbarContainerView = findViewById(R.id.toolbar_container);
+        
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 

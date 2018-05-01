@@ -62,12 +62,13 @@ public class ArticleListActivity extends AppCompatActivity implements
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getApplicationContext(), "Refereshed", Toast.LENGTH_SHORT).show();
+                refresh();
             }
         });
 
@@ -81,7 +82,7 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     private void refresh() {
         startService(new Intent(this, UpdaterService.class));
-    }
+}
 
     @Override
     protected void onStart() {
@@ -102,6 +103,11 @@ public class ArticleListActivity extends AppCompatActivity implements
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
     private boolean mIsRefreshing = false;
 
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
@@ -115,9 +121,11 @@ public class ArticleListActivity extends AppCompatActivity implements
     };
 
     private void updateRefreshingUI() {
-        if(mIsRefreshing) {
-            mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
-        }else mSwipeRefreshLayout.setEnabled(false);
+        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
+
+        if(!mIsRefreshing)
+            Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

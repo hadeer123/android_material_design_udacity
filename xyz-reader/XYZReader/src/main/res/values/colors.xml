@@ -17,6 +17,7 @@
 
 <resources>
 
+
     <color name="colorPrimary">#90a4ae</color>
 
     <color name="colorPrimaryLight">#c1d5e0</color>
@@ -29,7 +30,7 @@
 
     <color name="colorAccent">#ff6d00</color>
 
-    <color name="textColorPrimary">#000000</color>
+    <color name="textColorPrimary">#616161</color>
 
     <color name="colorPrimaryText">#000000</color>
 
